@@ -5,9 +5,19 @@ namespace Cours.Models{
         private String surnom;
         private String telephone;
         private String adresse;
+        private static int count;
+        private List<Dette> dettes;
+        public List<Dette> Dettes { get;  }= new List<Dette>();
+        public void AddDette(Dette dette)
+        {
+            Dettes.Add(dette);
+            dette.client = this;
+        }
 
         public Client()
         {
+            count++;
+            id = count;
         }
        
         public int Id { get => id; set => id = value; }

@@ -42,6 +42,15 @@ namespace Cours
                         if (client2 != null)
                             clientService.Delete(client2.Id);
                         break;
+                    case 5:
+                    Console.WriteLine("Saisissez le surnom du client : ");
+                    Client? client3 = clientService.FindBySurname(Console.ReadLine()!);
+                    if (client3 != null)
+                    {
+                        ClientView.ListDetteClients(client3);
+                    }
+
+                        break;
                     case 0:
                         Console.WriteLine("Au revoir!");
                         break;
@@ -57,6 +66,7 @@ namespace Cours
             Console.WriteLine("2. Afficher tous les clients");
             Console.WriteLine("3. Modifier un client");
             Console.WriteLine("4. Supprimer un client");
+            Console.WriteLine("5. Afficher tous les dettes");
             Console.WriteLine("0. Quitter");
             Console.Write("Votre choix : ");
             // return int.Parse(Console.ReadLine());

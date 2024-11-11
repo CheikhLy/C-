@@ -8,7 +8,7 @@ namespace Cours.Repository.Impl
         {
             return clients;
         }
-        public Client SelectById(int id)
+        public Client? SelectById(int id)
         {
             foreach (var client in clients)
             {
@@ -32,6 +32,11 @@ namespace Cours.Repository.Impl
             Client clientToRemove = clients.Find(cl => cl.Id == id);
             if (clientToRemove != null)
                 clients.Remove(clientToRemove);
+        }
+
+        public Client? FindBySurnam(string surnam)
+        {
+           return clients.Find(cl => cl.Surnom.ToLower() == surnam.ToLower());
         }
     }
 }

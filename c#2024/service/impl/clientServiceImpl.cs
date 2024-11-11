@@ -20,7 +20,7 @@ namespace Cours.Service.Impl{
 
         Client IClientService.FindById(int id)
         {
-             return clientRepository.SelectById(id);
+             return clientRepository.SelectById(id)!;
         }
 
         public void Save(Client client)
@@ -31,6 +31,11 @@ namespace Cours.Service.Impl{
         public void Update(Client client)
         {
             clientRepository.Update(client);
+        }
+
+        public Client FindBySurname(string surnom)
+        {
+           return clientRepository.FindBySurnam(surnom)!;
         }
     }
 }   
