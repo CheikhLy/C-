@@ -3,6 +3,8 @@ namespace Cours.Repository.Impl
 {
     public class ClientRepositoryImpl : IClientRepository
     {
+         private readonly string connectionString = "Server=localhost;Port=3306;Database=gestion_dette;Uid=root;Pwd=";
+
         private readonly List<Client> clients = new List<Client>();
         public List<Client> SelectAll()
         {

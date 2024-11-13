@@ -1,4 +1,6 @@
-﻿﻿using Cours.Models;
+﻿using Cours.Core.Factory;
+using Cours.Enum;
+using Cours.Models;
 using Cours.Repository;
 using Cours.Repository.Impl;
 using Cours.Service;
@@ -12,8 +14,10 @@ namespace Cours
         public static void Main(string[] args)
         {
            
-            IClientRepository clientRepository = new ClientRepositoryImpl();
+          
+             IClientRepository clientRepository = FactoryRepo.CreateClientRepository(Persistence.LIST)!;
             IClientService clientService = new ClientServiceImpl(clientRepository);
+
             int choice;
             do
             {
