@@ -53,16 +53,29 @@ namespace ges_dette.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Surnom,Telephone,Adresse")] Client client)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(client);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(client);
-        }
+[HttpPost]
+public IActionResult CreateClient(Client client)
+{
+    if (!IsUniqueTelephone(client.Telephone))
+    {
+        return BadRequest("Le numéro de téléphone existe déjà.");
+    }
+
+    if (!IsUniqueSurname(client.Surnom))
+    {
+        return BadRequest("Le nom de famille existe déjà.");
+    }
+
+    if (!IsUnique(client.Telephone, client.Adresse))
+    {
+        return BadRequest("L'addresse' existe déjà.");
+    }
+
+    _context.Client.Add(client);
+    _context.SaveChanges();
+    return Ok(client);
+}
+
 
         // GET: Client/Edit/5
         public async Task<IActionResult> Edit(int? id)

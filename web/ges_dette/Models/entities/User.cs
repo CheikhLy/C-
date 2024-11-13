@@ -8,7 +8,7 @@ namespace Cours.Models{
          private String prenom;
 
         private static int count;
-        private List<Dette> dettes;
+        
         private Client client;
         
 
