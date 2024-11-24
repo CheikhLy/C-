@@ -1,4 +1,4 @@
-@model IEnumerable<Cours.Models.Dette>
+@model ges_dette.Models.entities.Dette
 
 @{
     Layout = null;
@@ -19,6 +19,7 @@
     <thead>
         <tr>
             <th>
+    using ges_dette.Models.entities;
                 @Html.DisplayNameFor(model => model.Montant)
             </th>
             <th>
@@ -28,7 +29,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@* @foreach (var item in Dette ) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Montant)
@@ -42,7 +43,7 @@
                 <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
-}
+} *@
     </tbody>
 </table>
 </body>

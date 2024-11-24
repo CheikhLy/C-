@@ -2,21 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ges_dette.Data;
+using ges_dette.Models.entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Cours.Models;
 
 namespace ges_dette.Controllers
 {
-    public class DetteController : Controller
+    public class DetteController(AppDbContext context) : Controller
     {
-        private readonly ApplicationDbContext _context;
-
-        public DetteController(ApplicationDbContext context)
-        {
-            _context = context;
-        }
+        private readonly AppDbContext _context = context;
 
         // GET: Dette
         public async Task<IActionResult> Index()

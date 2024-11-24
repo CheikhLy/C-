@@ -1,0 +1,58 @@
+@model Cours.Models.Client
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Client</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="max-w-3xl mx-auto bg-white shadow-md rounded-lg p-6">
+            <h2 class="text-2xl font-bold mb-4 text-center">Détails du Client</h2>
+
+            <dl class="divide-y divide-gray-200">
+                <!-- Surnom -->
+                <div class="py-4 sm:flex sm:justify-between">
+                    <dt class="text-sm font-medium text-gray-500">Surnom</dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:ml-6">@Html.DisplayFor(model => model.Surnom)</dd>
+                </div>
+
+                <!-- Téléphone -->
+                <div class="py-4 sm:flex sm:justify-between">
+                    <dt class="text-sm font-medium text-gray-500">Téléphone</dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:ml-6">@Html.DisplayFor(model => model.Telephone)</dd>
+                </div>
+
+                <!-- Adresse -->
+                <div class="py-4 sm:flex sm:justify-between">
+                    <dt class="text-sm font-medium text-gray-500">Adresse</dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:ml-6">@Html.DisplayFor(model => model.Adresse)</dd>
+                </div>
+
+             
+
+                <!-- Utilisateur -->
+                <div class="py-4 sm:flex sm:justify-between">
+                    <dt class="text-sm font-medium text-gray-500">Utilisateur</dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:ml-6">@Html.DisplayFor(model => model.User.Login)</dd>
+                </div>
+            </dl>
+
+            <!-- Boutons -->
+            <div class="mt-6 flex justify-between">
+                <a asp-action="Edit" asp-route-id="@Model?.Id" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Modifier</a>
+                <a asp-action="Index" class="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400">Retour à la liste</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

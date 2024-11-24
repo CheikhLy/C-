@@ -1,17 +1,17 @@
-using Cours.Models;
+using ges_dette.Data;
+using ges_dette.Models.entities;
 using Microsoft.EntityFrameworkCore;
 
-public class ClientService
+namespace ges_dette.Service
 {
-    private readonly ApplicationDbContext _context;
 
-    public ClientService(ApplicationDbContext context)
+    public class ClientService(AppDbContext context)
     {
-        _context = context;
-    }
+        private readonly AppDbContext _context = context;
 
-    public List<Client> GetAllClients()
-    {
-        return _context.Client.Include(c => c.Dettes).ToList();
+        public List<Client> GetAllClients()
+        {
+            return _context.Client.Include(c => c.Dettes).ToList();
+        }
     }
 }
