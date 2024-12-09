@@ -62,6 +62,7 @@ namespace ges_dette.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Date,Montant,DetteId")] Paiement paiement)
         {
+            ModelState.Remove("Dette");
             if (ModelState.IsValid)
             {
                 _context.Add(paiement);

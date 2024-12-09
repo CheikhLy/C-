@@ -62,9 +62,10 @@ namespace ges_dette.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Date,Montant,MontantVerser,ClientId")] Dette dette)
         {
+            ModelState.Remove("Client");
             if (ModelState.IsValid)
+
             {
-                
                 _context.Add(dette);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
